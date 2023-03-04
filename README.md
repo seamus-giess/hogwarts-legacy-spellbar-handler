@@ -1,0 +1,1 @@
+# hogwarts-legacy-spellbar-handler
