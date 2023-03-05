@@ -9,7 +9,6 @@ class SwapBarKeybind extends AppKeybind {
 
     swapTo()
     {
-        global currentActiveBind
         if (!this.isAllowed()) {
             return
         }
@@ -28,7 +27,7 @@ class SwapBarKeybind extends AppKeybind {
             return
         }
 
-        currentActiveBind := this.getBindLabel()
+        this.setRunning()
 
         this.previousBar := getCurrentBar()
         this.bar.pageTo()
@@ -38,17 +37,16 @@ class SwapBarKeybind extends AppKeybind {
     
     swapBack()
     {
-        global currentActiveBind
         if (!this.isAllowed()) {
             return
         }
 
         ; Only allow release if it was first pressed
-        if (currentActiveBind != this.getBindLabel()) {
-            return false
+        if (!this.isRunning()) {
+            return
         }
 
-        currentActiveBind := false
+        releaseBinds()
 
         this.previousBar.pageTo()
     }

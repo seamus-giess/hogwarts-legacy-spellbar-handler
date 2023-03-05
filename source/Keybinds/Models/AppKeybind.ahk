@@ -8,7 +8,7 @@ class AppKeyBind
             return false
         }
 
-        if (currentActiveBind && currentActiveBind != this.getBindLabel()) {
+        if (isAnyBindRunning() && !this.isRunning()) {
             return false
         }
 
@@ -23,5 +23,15 @@ class AppKeyBind
     initializeHotkey(bind, methodName) 
     {
         initializeObjectHotkey(bind, this, methodName)
+    }
+
+    isRunning()
+    {
+        return isBindRunning(this.getBindLabel)
+    }
+
+    setRunning()
+    {
+        setBindRunning(this.getBindLabel)
     }
 }
