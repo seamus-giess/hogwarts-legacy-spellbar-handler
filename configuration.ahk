@@ -35,9 +35,9 @@ TEMPORARY_SWAP_MODIFIERS := {
 
 ; Set hot-swapping keybinds
 ; Spell hot-swapping swaps the spells into the fourth slot of your lowest bar
-SPELL_HOTSWAP_BINDS := {
-    lumos: "A",
-    reparo: false,
-    disillusionment: "C",
-    wingardium_leviosa: false,
+SPELL_QUICKBINDS := {
+    lumos: {bind: "A", xCoordinate: 0, yCoordinate: 0},
+    reparo: {bind: false, xCoordinate: 0, yCoordinate: 0},
+    disillusionment: {bind: "C", xCoordinate: 0, yCoordinate: 0},
+    wingardium_leviosa: {bind: false, xCoordinate: 0, yCoordinate: 0},
 }
