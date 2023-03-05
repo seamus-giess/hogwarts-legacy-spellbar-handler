@@ -1,7 +1,7 @@
 class SpellQuickbind extends AppKeybind {
-    __New(thisKey, targetSpell)
+    __New(bind, targetSpell)
     {
-        this.thisKey := thisKey
+        this.bind := bind
         this.spell := targetSpell
 
         this.isCurrentQuickSpell := false

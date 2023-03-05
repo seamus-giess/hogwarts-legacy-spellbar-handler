@@ -17,6 +17,6 @@ class AppKeyBind
 
     getBindLabel()
     {
-        return this.__class . this.thisKey
+        return this.__class . this.bind
     }
 }
