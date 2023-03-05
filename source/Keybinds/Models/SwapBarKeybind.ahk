@@ -37,12 +37,12 @@ class SwapBarKeybind extends AppKeybind {
     
     swapBack()
     {
-        if (!this.isAllowed()) {
+        ; Only allow release if initial press successful
+        if (!isAnyBindRunning()) {
             return
         }
 
-        ; Only allow release if it was first pressed
-        if (!this.isRunning()) {
+        if (!this.isAllowed()) {
             return
         }
 

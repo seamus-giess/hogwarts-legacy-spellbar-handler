@@ -8,6 +8,7 @@ class AppKeyBind
             return false
         }
 
+        ; Don't execute if already running a bind, but let release macros of the same bind through
         if (isAnyBindRunning() && !this.isRunning()) {
             return false
         }
