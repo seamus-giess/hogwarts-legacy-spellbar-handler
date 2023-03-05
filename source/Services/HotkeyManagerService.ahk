@@ -21,3 +21,4 @@ releaseBinds()
     global currentActiveBind
     currentActiveBind := false
 }
+

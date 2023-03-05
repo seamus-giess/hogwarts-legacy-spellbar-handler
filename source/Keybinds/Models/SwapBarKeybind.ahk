@@ -13,17 +13,12 @@ class SwapBarKeybind extends AppKeybind {
             return
         }
 
-        if (!this.bar.unlocked) {
-            this.bar.unlocked := !isBarLocked(this.bar)
-
-            if (!this.bar.unlocked) {
-                ShowBarDisabledTooltip(this.bar.bind)
-                return
-            }
+        if (isBarLocked(this.bar)) {
+            ShowBarDisabledTooltip(this.bar.bind)
+            return
         }
 
-        isBarCurrent := getCurrentBar() = this.bar
-        if (isBarCurrent) {
+        if (isBarCurrent(this.bar)) {
             return
         }
 

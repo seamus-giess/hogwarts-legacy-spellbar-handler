@@ -1,5 +1,10 @@
 isBarLocked(bar)
 {
+    ; Trust previous estimations if to reduce overhead
+    if (bar.unlocked) {
+        return false
+    }
+
     barStatusColor := PixelGetColor(
         bar.xCoordinate,
         bar.yCoordinate,
@@ -9,7 +14,12 @@ isBarLocked(bar)
     isBarCurrent := barStatusColor = BAR_STATE_COLORS.current
     isBarUnlocked := barStatusColor = BAR_STATE_COLORS.unlocked
 
-    return !isBarCurrent && !isBarUnlocked
+    isLocked := !isBarCurrent && !isBarUnlocked
+    
+    ; Update the bar's status while we're here
+    bar.unlocked := !isLocked
+
+    return isLocked
 }
 
 getCurrentBar()
@@ -28,6 +38,11 @@ getCurrentBar()
     }
 
     return bars["bar_1"]
+}
+
+isBarCurrent(bar)
+{
+    return getCurrentBar() = bar
 }
 
 getLatestUnlockedBar() {
