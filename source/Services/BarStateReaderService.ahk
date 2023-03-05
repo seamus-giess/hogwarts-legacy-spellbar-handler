@@ -6,7 +6,10 @@ isBarLocked(bar)
         "Alt"
     )
 
-    return barStatusColor = BAR_STATE_COLORS.locked
+    isBarCurrent := barStatusColor = BAR_STATE_COLORS.current
+    isBarUnlocked := barStatusColor = BAR_STATE_COLORS.unlocked
+
+    return !isBarCurrent && !isBarUnlocked
 }
 
 getCurrentBar()
