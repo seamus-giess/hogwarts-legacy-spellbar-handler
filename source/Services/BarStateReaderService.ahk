@@ -30,6 +30,17 @@ getCurrentBar()
     return bars["bar_1"]
 }
 
+getLatestUnlockedBar() {
+    latestUnlockedBar := bars["bar_1"]
+    For (key, bar in bars) {
+        if (!isBarLocked(bar)) {
+            latestUnlockedBar := bar
+        }
+    }
+
+    return latestUnlockedBar
+}
+
 ShowBarDisabledTooltip(targetBarBind) {
     ToolTip("Bar bound to {" . targetBarBind . "} is not unlocked.", 0, 0)
     SetTimer(HideTooltip, -4000)
