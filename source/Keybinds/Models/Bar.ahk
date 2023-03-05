@@ -6,4 +6,9 @@ class Bar {
         this.yCoordinate := yCoordinate
         this.unlocked := unlocked
     }
+
+    pageTo()
+    {
+        Send("{" . this.bind . "}")
+    }
 }
