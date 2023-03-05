@@ -32,7 +32,7 @@ class SwapBarKeybind extends AppKeybind {
 
         this.previousBar := getCurrentBar()
         this.bar.pageTo()
-        
+
         KeyWait(this.bind)
     }
     
@@ -56,14 +56,8 @@ class SwapBarKeybind extends AppKeybind {
     initialiseHotkeys()
     {
         bindKeyTo := "~" . this.bind
+        initializeObjectHotkey(bindKeyTo, this, "swapTo")
         bindKeyFrom := "~*" . this.bind . " Up"
-
-        Hotkey(bindKeyTo, bindFunction.Bind(,this,"swapTo"))
-        Hotkey(bindKeyFrom, bindFunction.Bind(,this,"swapBack"))
-
-        bindFunction(pressedKey, object, action)
-        {
-            object.%action%()
-        }
+        initializeObjectHotkey(bindKeyFrom, this, "swapBack")
     }
 }
