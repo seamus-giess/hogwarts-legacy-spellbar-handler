@@ -1,8 +1,8 @@
 class SwapBarKeybind extends AppKeybind {
     __New(thisKey, targetBar)
     {
-        this.thisKey := thisKey
-        this.targetBar := targetBar
+        this.bind := thisKey
+        this.bar := targetBar
 
         this.previousBar := false
     }
@@ -14,16 +14,16 @@ class SwapBarKeybind extends AppKeybind {
             return
         }
 
-        if (!this.targetBar.unlocked) {
-            this.targetBar.unlocked := !isBarLocked(this.targetBar)
+        if (!this.bar.unlocked) {
+            this.bar.unlocked := !isBarLocked(this.bar)
 
-            if (!this.targetBar.unlocked) {
-                ShowBarDisabledTooltip(this.targetBar.bind)
+            if (!this.bar.unlocked) {
+                ShowBarDisabledTooltip(this.bar.bind)
                 return
             }
         }
 
-        isBarCurrent := getCurrentBar() = this.targetBar
+        isBarCurrent := getCurrentBar() = this.bar
         if (isBarCurrent) {
             return
         }
@@ -31,11 +31,12 @@ class SwapBarKeybind extends AppKeybind {
         currentActiveBind := this.getBindLabel()
 
         this.previousBar := getCurrentBar()
-        Send("{" . this.targetBar.bind . "}")
-        KeyWait(this.thisKey)
+        this.bar.pageTo()
+        
+        KeyWait(this.bind)
     }
     
-    swapFrom()
+    swapBack()
     {
         global currentActiveBind
         if (!this.isAllowed()) {
@@ -49,16 +50,16 @@ class SwapBarKeybind extends AppKeybind {
 
         currentActiveBind := false
 
-        Send("{" . this.previousBar.bind . "}")
+        this.previousBar.pageTo()
     }
 
     initialiseHotkeys()
     {
-        bindKeyTo := "~" . this.thisKey
-        bindKeyFrom := "~*" . this.thisKey . " Up"
+        bindKeyTo := "~" . this.bind
+        bindKeyFrom := "~*" . this.bind . " Up"
 
         Hotkey(bindKeyTo, bindFunction.Bind(,this,"swapTo"))
-        Hotkey(bindKeyFrom, bindFunction.Bind(,this,"swapFrom"))
+        Hotkey(bindKeyFrom, bindFunction.Bind(,this,"swapBack"))
 
         bindFunction(pressedKey, object, action)
         {
