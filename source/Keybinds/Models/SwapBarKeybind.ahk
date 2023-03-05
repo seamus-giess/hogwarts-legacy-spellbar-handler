@@ -56,8 +56,9 @@ class SwapBarKeybind extends AppKeybind {
     initialiseHotkeys()
     {
         bindKeyTo := "~" . this.bind
-        initializeObjectHotkey(bindKeyTo, this, "swapTo")
+        this.initializeHotkey(bindKeyTo, "swapTo")
+
         bindKeyFrom := "~*" . this.bind . " Up"
-        initializeObjectHotkey(bindKeyFrom, this, "swapBack")
+        this.initializeHotkey(bindKeyFrom, "swapBack")
     }
 }

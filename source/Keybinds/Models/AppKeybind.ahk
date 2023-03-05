@@ -19,4 +19,9 @@ class AppKeyBind
     {
         return this.__class . this.bind
     }
+
+    initializeHotkey(bind, methodName) 
+    {
+        initializeObjectHotkey(bind, this, methodName)
+    }
 }
