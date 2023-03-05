@@ -1,10 +1,10 @@
 initializeObjectHotkey(bind, object, methodName)
 {
-    hotkeyableObjectMethod := bindObjectMethod.Bind(, object, methodName)
+    hotkeyableObjectMethod := bindableObjectMethod.Bind(, object, methodName)
     Hotkey(bind, hotkeyableObjectMethod)
 }
 
-bindObjectMethod(pressedKey, object, methodName)
+bindableObjectMethod(pressedKey, object, methodName)
 {
     object.%methodName%()
 }
