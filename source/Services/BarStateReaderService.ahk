@@ -24,7 +24,7 @@ getCurrentBar()
         }
     }
 
-    return bars[0]
+    return bars["bar_1"]
 }
 
 ShowBarDisabledTooltip(targetBarBind) {
