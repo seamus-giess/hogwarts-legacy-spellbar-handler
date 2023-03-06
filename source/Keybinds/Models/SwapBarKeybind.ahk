@@ -5,6 +5,8 @@ class SwapBarKeybind extends AppKeybind {
         this.bar := targetBar
 
         this.previousBar := false
+
+        this.initialiseHotkeys()
     }
 
     swapTo()

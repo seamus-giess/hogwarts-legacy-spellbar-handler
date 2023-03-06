@@ -35,5 +35,4 @@ For (barSlug, bind in TEMPORARY_SWAP_MODIFIERS.OwnProps()) {
     }
 
     barSwaps[barSlug] := SwapBarKeybind(bind, bars[barSlug])
-    barSwaps[barSlug].initialiseHotkeys()
 }
