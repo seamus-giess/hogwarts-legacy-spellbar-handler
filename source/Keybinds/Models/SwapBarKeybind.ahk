@@ -50,10 +50,10 @@ class SwapBarKeybind extends AppKeybind {
 
     initialiseHotkeys()
     {
-        bindKeyTo := "~" . this.bind
-        this.initializeHotkey(bindKeyTo, "swapTo")
+        swapToAcitonBind := "~" . this.bind
+        this.initializeHotkey(swapToAcitonBind, "swapTo")
 
-        bindKeyFrom := "~*" . this.bind . " Up"
-        this.initializeHotkey(bindKeyFrom, "swapBack")
+        swapBackActionBind := "~*" . this.bind . " Up"
+        this.initializeHotkey(swapBackActionBind, "swapBack")
     }
 }
