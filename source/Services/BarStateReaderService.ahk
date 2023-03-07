@@ -1,4 +1,4 @@
-latestUnlockedBar := bars["bar_1"]
+latestUnlockedBar := false
 
 isBarLocked(bar)
 {
@@ -48,7 +48,12 @@ isBarCurrent(bar)
 }
 
 getLatestUnlockedBar() {
-    if (latestUnlockedBar.bind = BAR_BINDINGS["bar_4"].bind) {
+    global latestUnlockedBar
+    
+    if (
+        latestUnlockedBar
+        && latestUnlockedBar.bind = BAR_BINDINGS["bar_4"].bind
+    ) {
         return latestUnlockedBar
     }
 
