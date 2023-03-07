@@ -7,13 +7,13 @@ isQuickbindCurrent(quickbind)
     return quickbind = currentQuickbind
 }
 
-setCurrentQuickbind(spell)
+setCurrentQuickbind(spell, castOnSet)
 {
     ; Innitialize slot
     bar := getLatestUnlockedBar
-    slot := Slot(bar, 4)
+    quickslot := Slot(bar, 4)
 
-    slot.pageTo()
+    quickslot.pageTo()
 
     ; TODO open spell select menu
     spellSelectionKey := "{" . SPELL_SELECTION_BIND . "}"
@@ -30,6 +30,13 @@ setCurrentQuickbind(spell)
     ; TODO update quickspell global state
 
     ; TODO swap back to previous bar
+    
+
+    if (!castOnSet) {
+        return
+    }
+
+    useQuickbindSlot(quickslot)
 }
 
 useQuickbindSlot(slot)
