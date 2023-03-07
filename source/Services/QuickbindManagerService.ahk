@@ -16,7 +16,7 @@ setCurrentQuickbind(spell)
     slot.pageTo()
 
     ; TODO open spell select menu
-    spellSelectionKey = "{" . SPELL_SELECTION_BIND . "}"
+    spellSelectionKey := "{" . SPELL_SELECTION_BIND . "}"
     Send(spellSelectionKey)
 
     ; TODO move to this.spell
