@@ -52,7 +52,7 @@ getLatestUnlockedBar() {
     
     if (
         latestUnlockedBar
-        && latestUnlockedBar.bind = BAR_BINDINGS["bar_4"].bind
+        && latestUnlockedBar.bind = BAR_BINDINGS.bar_4.bind
     ) {
         return latestUnlockedBar
     }

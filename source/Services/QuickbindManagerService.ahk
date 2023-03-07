@@ -4,42 +4,50 @@ currentQuickbind := false
 
 isQuickbindCurrent(quickbind)
 {
+    global currentQuickbind
+
     return quickbind = currentQuickbind
 }
 
-setCurrentQuickbind(quickslot, spell, castOnSet)
+unsetQuickbind()
 {
-    quickslot.pageTo()
+    global currentQuickbind
 
-    ; TODO open spell select menu
-    spellSelectionKey := "{" . SPELL_SELECTION_BIND . "}"
-    Send(spellSelectionKey)
+    currentQuickbind := false
+}
 
-    ; TODO move to this.spell
+setCurrentQuickbind(slot, spell, castOnSet)
+{
+    global currentQuickbind
 
-    ; TODO pick up spell
+    BlockInput(true)
 
-    ; TODO move to specified spellbar slot
-
-    ; TODO drop spell
+    ; Move spell to slot
+    slot.putSpellHere(spell)
 
     ; TODO update quickspell global state
-
-    ; TODO swap back to previous bar
+    currentQuickbind := spell
     
+    BlockInput(false)
 
     if (!castOnSet) {
         return
     }
 
-    useQuickbindSlot(quickslot)
+    useQuickbindSlot(slot)
 }
 
 useQuickbindSlot(slot)
 {
-    ; TODO swap to bar
+    originalBar := getCurrentBar()
+    
+    slot.pageTo()
+    sleep(10)
 
     ; TODO cast spell
+    slot.press()
+    sleep(10)
 
     ; TODO swap back to previous bar
+    originalBar.pageTo()
 }

@@ -6,15 +6,18 @@ class SpellQuickbind extends AppKeybind {
         this.castOnSet := castOnSet
 
         this.isCurrentQuickSpell := false
-             
+
         actionBind := "~" . this.bind
         this.initializeHotkey(actionBind, "doAction")
     }
 
     doAction()
     {
-        bar := getLatestUnlockedBar
-        quickslot := Slot(bar, 0, 0)
+        global barSlots
+
+        latestUnlockedBar := getLatestUnlockedBar()
+
+        slot := barSlots[latestUnlockedBar.bind]["4"]
 
         if (!this.isAllowed()) {
             return
@@ -22,10 +25,10 @@ class SpellQuickbind extends AppKeybind {
 
         if (isQuickbindCurrent(this.spell)) {
 
-            useQuickbindSlot(quickslot)
+            useQuickbindSlot(slot)
             return
         }
 
-        setCurrentQuickbind(quickslot, this.spell, this.castOnSet)
+        setCurrentQuickbind(slot, this.spell, this.castOnSet)
     }
 }

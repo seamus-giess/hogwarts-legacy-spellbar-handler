@@ -1,7 +1,23 @@
 class Spell {
-    __New(xCoordinate, yCoordinate)
+    __New(spellPosition)
     {
-        this.xCoordinate := xCoordinate
-        this.yCoordinate := yCoordinate
+        this.spellPosition := spellPosition
+    }
+
+    pickup()
+    {
+        this.spellPosition.pickup()
+    }
+
+    mouse(action)
+    {
+        MouseClick(
+            , ; WhichButton
+            , ; X
+            , ; Y
+            , ; ClickCount
+            , ; Speed
+            action,
+        )
     }
 }

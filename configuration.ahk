@@ -5,10 +5,25 @@ ALLOWED_APPLICATONS := [
 
 SPELL_SELECTION_BIND := "T"
 
+MOVEMENT_KEYS := [
+    "S",
+    "D",
+    "F",
+    "E",
+    "LShift",
+]
+
 BAR_STATE_COLORS := {
     current: "0xE1E1E2",
     unlocked: "0x858585",
     locked: "0x1A1A1A",
+}
+
+SLOT_BINDINGS := {
+    1: {bind: "1", xCoordinate: 1896, yCoordinate: 864},
+    2: {bind: "2", xCoordinate: 1896, yCoordinate: 884},
+    3: {bind: "3", xCoordinate: 1896, yCoordinate: 904},
+    4: {bind: "4", xCoordinate: 1896, yCoordinate: 924},
 }
 
 ; Specify Hogwarts Legacy's binding for each specific spellbar
@@ -18,6 +33,19 @@ BAR_BINDINGS := {
     bar_3: {bind: "F3", xCoordinate: 1896, yCoordinate: 904, unlocked: false},
     bar_4: {bind: "F4", xCoordinate: 1896, yCoordinate: 924, unlocked: false},
 }
+
+SPELL_SELECTION_BAR_Y := Map(
+    "F1", 200,
+    "F2", 350,
+    "F3", 500,
+    "F4", 650,
+)
+SPELL_SELECTION_SLOT_X := Map(
+    "1", 140,
+    "2", 267,
+    "3", 395,
+    "4", 517,
+)
 
 ; Specify spellbar cycling/swapping keybinds (and bars) to be set
 ; if BAR_CYCLE_KEY is not set, this feature is disabled
@@ -40,8 +68,8 @@ TEMPORARY_SWAP_MODIFIERS := {
 SPELL_QUICKBINDS := {
     lumos: {
         bind: "A",
-        xCoordinate: 0,
-        yCoordinate: 0,
+        xCoordinate: 1010,
+        yCoordinate: 524,
         ; castOnSet: true
     },
     reparo: {
@@ -52,8 +80,8 @@ SPELL_QUICKBINDS := {
     },
     disillusionment: {
         bind: "C",
-        xCoordinate: 0,
-        yCoordinate: 0,
+        xCoordinate: 891,
+        yCoordinate: 524,
         ; castOnSet: true
     },
     wingardium_leviosa: {
