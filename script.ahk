@@ -21,7 +21,7 @@ For (key, quickbindData in SPELL_QUICKBINDS.OwnProps()) {
         quickbindData.yCoordinate,
     )
 
-    castOnSet := IsSet(quickbindData.castOnSet)
+    castOnSet := quickbindData.castOnSet
         ? quickbindData.castOnSet
         : true
     quickbinds[key] := SpellQuickbind(quickbindData.bind, spells[key], castOnSet)
