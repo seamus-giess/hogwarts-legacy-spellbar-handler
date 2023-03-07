@@ -23,7 +23,8 @@ class AppKeyBind
 
     initializeHotkey(bind, methodName) 
     {
-        initializeObjectHotkey(bind, this, methodName)
+        hotkeyableObjectMethod := bindableObjectMethod.Bind(, object, methodName)
+        Hotkey(bind, hotkeyableObjectMethod)
     }
 
     isRunning()
