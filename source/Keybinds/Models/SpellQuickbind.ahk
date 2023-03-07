@@ -6,7 +6,7 @@ class SpellQuickbind extends AppKeybind {
         this.castOnSet := castOnSet
 
         this.isCurrentQuickSpell := false
-
+             
         actionBind := "~" . this.bind
         this.initializeHotkey(actionBind, "doAction")
     }
@@ -26,6 +26,6 @@ class SpellQuickbind extends AppKeybind {
             return
         }
 
-        useSlotQuickly()
+        setCurrentQuickbind(quickslot, this.spell, this.castOnSet)
     }
 }

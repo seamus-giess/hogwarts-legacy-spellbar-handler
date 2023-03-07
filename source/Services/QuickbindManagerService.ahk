@@ -7,12 +7,8 @@ isQuickbindCurrent(quickbind)
     return quickbind = currentQuickbind
 }
 
-setCurrentQuickbind(spell, castOnSet)
+setCurrentQuickbind(quickslot, spell, castOnSet)
 {
-    ; Innitialize slot
-    bar := getLatestUnlockedBar
-    quickslot := Slot(bar, 4)
-
     quickslot.pageTo()
 
     ; TODO open spell select menu
