@@ -21,10 +21,7 @@ For (key, quickbindData in SPELL_QUICKBINDS.OwnProps()) {
         quickbindData.yCoordinate,
     )
 
-    castOnSet := quickbindData.castOnSet
-        ? quickbindData.castOnSet
-        : true
-    quickbinds[key] := SpellQuickbind(quickbindData.bind, spells[key], castOnSet)
+    quickbinds[key] := SpellQuickbind(quickbindData.bind, spells[key], quickBindData || true)
 }
 
 ; TEMP BAR SWAP BISND SETUP
