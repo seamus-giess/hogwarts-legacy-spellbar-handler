@@ -12,16 +12,19 @@ For (key, barData in BAR_BINDINGS.OwnProps()) {
     )
 }
 
-; QUICKSLOT DATA SETUP
+; QUICKBIND DATA SETUP
 spells := Map()
 quickbinds := Map()
-For (key, spellData in SPELL_QUICKBINDS.OwnProps()) {
+For (key, quickbindData in SPELL_QUICKBINDS.OwnProps()) {
     spells[key] := Spell(
-        spellData.xCoordinate,
-        spellData.yCoordinate,
+        quickbindData.xCoordinate,
+        quickbindData.yCoordinate,
     )
 
-    quickbinds[key] := SpellQuickbind(spellData.bind, spells[key])
+    castOnSet := IsSet(quickbindData.castOnSet)
+        ? quickbindData.castOnSet
+        : true
+    quickbinds[key] := SpellQuickbind(quickbindData.bind, spells[key], castOnSet)
 }
 
 ; TEMP BAR SWAP BISND SETUP
