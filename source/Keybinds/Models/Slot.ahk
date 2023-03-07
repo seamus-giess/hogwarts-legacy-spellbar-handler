@@ -5,4 +5,9 @@ class Slot {
         this.xCoordinate := xCoordinate
         this.yCoodinate := yCoodinate
     }
+
+    pageTo()
+    {
+        this.bar.pageTo()
+    }
 }
