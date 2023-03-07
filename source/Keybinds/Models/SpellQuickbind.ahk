@@ -14,14 +14,16 @@ class SpellQuickbind extends AppKeybind {
 
     doAction()
     {
-        if (isQuickbindCurrent(this.spell)) {
-            this.castQuickSpell()
+        bar := getLatestUnlockedBar
+        quickslot := Slot(bar, 0, 0)
+
+        if (!this.isAllowed()) {
             return
         }
 
-        setCurrentQuickbind(,this.spell)
+        if (isQuickbindCurrent(this.spell)) {
 
-        if (!this.castOnSet) {
+            useQuickbindSlot(quickslot)
             return
         }
 
