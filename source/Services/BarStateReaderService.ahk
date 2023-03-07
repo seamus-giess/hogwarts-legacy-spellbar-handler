@@ -1,3 +1,5 @@
+latestUnlockedBar := bars["bar_1"]
+
 isBarLocked(bar)
 {
     ; Trust previous estimations if to reduce overhead
@@ -46,7 +48,10 @@ isBarCurrent(bar)
 }
 
 getLatestUnlockedBar() {
-    latestUnlockedBar := bars["bar_1"]
+    if (latestUnlockedBar.bind = BAR_BINDINGS["bar_4"].bind) {
+        return latestUnlockedBar
+    }
+
     For (key, bar in bars) {
         if (!isBarLocked(bar)) {
             latestUnlockedBar := bar
