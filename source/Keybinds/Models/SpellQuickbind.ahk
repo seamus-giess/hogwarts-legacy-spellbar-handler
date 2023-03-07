@@ -3,11 +3,10 @@ class SpellQuickbind extends AppKeybind {
     {
         this.bind := bind
         this.spell := targetSpell
-        this.castOnSet := true
+        this.castOnSet := castOnSet
 
         this.isCurrentQuickSpell := false
 
-        
         actionBind := "~" . this.bind
         this.initializeHotkey(actionBind, "doAction")
     }
