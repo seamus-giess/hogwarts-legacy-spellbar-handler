@@ -3,6 +3,8 @@ ALLOWED_APPLICATONS := [
     "hogwarts-legacy-spellbar-handler",
 ]
 
+SPELL_SELECTION_BIND = "T"
+
 BAR_STATE_COLORS := {
     current: "0xE1E1E2",
     unlocked: "0x858585",
