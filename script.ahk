@@ -1,9 +1,6 @@
 #Include configuration.ahk
 #Include source/_index.ahk
 
-; Handler to prevent multiple modifiers from overlapping
-currentActiveBind := false
-
 ; BAR DATA SETUP
 bars := Map()
 For (key, barData in BAR_BINDINGS.OwnProps()) {
