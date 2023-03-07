@@ -14,38 +14,17 @@ class SpellQuickbind extends AppKeybind {
 
     doAction()
     {
-        ; IF currentQuickspell is this.spell
-        ; DO quick cat
-        ; ELSE set this.spell as currentQuickspell
-    }
+        if (isQuickbindCurrent(this.spell)) {
+            this.castQuickSpell()
+            return
+        }
 
-    ; This should be in a service? feels weird being a helper in a class
-    castQuickSpell()
-    {
-        ; TODO swap to bar
+        setCurrentQuickbind(,this.spell)
 
-        ; TODO cast spell
+        if (!this.castOnSet) {
+            return
+        }
 
-        ; TODO swap back to previous bar
-    }
-
-    ; This also probably belongs in a helper
-    setQuickspell()
-    {
-        ; TODO swap to bar
-
-        ; TODO open spell select menu
-
-        ; TODO move to this.spell
-
-        ; TODO pick up spell
-
-        ; TODO move to specified spellbar slot
-
-        ; TODO drop spell
-
-        ; TODO update quickspell global state
-
-        ; TODO swap back to previous bar
+        useSlotQuickly()
     }
 }
