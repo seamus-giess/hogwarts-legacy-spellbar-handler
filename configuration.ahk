@@ -73,9 +73,9 @@ SPELL_QUICKBINDS := {
         ; castOnSet: true
     },
     reparo: {
-        bind: false,
-        xCoordinate: 0,
-        yCoordinate: 0,
+        bind: "H",
+        xCoordinate: 1128,
+        yCoordinate: 523,
         ; castOnSet: true
     },
     disillusionment: {
