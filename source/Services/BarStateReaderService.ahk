@@ -1,4 +1,5 @@
 latestUnlockedBar := false
+lastCurrentBar := false
 
 isBarLocked(bar)
 {
@@ -27,6 +28,8 @@ isBarLocked(bar)
 getCurrentBar()
 {
     global bars
+    global lastCurrentBar
+
     For (key, bar in bars) {
         barStatusColor := PixelGetColor(
             bar.xCoordinate,
@@ -35,9 +38,16 @@ getCurrentBar()
         )
         isBarActive := barStatusColor = BAR_STATE_COLORS.current
         if (isBarActive) {
+            lastCurrentBar := bar
             return bar
         }
     }
+
+    if (lastCurrentBar) {
+        return lastCurrentBar
+    }
+
+    MsgBox("bar_1" . lastCurrentBar.bind)
 
     return bars["bar_1"]
 }

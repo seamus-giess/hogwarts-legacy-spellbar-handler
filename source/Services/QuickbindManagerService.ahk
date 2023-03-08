@@ -40,13 +40,14 @@ setCurrentQuickbind(slot, spell, castOnSet)
 useQuickbindSlot(slot)
 {
     originalBar := getCurrentBar()
+    sleep(50)
     
     slot.pageTo()
-    sleep(10)
+    sleep(50)
 
     ; TODO cast spell
     slot.press()
-    sleep(10)
+    sleep(1)
 
     ; TODO swap back to previous bar
     originalBar.pageTo()
