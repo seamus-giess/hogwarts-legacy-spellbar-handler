@@ -47,9 +47,7 @@ getCurrentBar()
         return lastCurrentBar
     }
 
-    MsgBox("bar_1" . lastCurrentBar.bind)
-
-    return bars["bar_1"]
+    return bars["Numpad1"]
 }
 
 isBarCurrent(bar)
@@ -62,7 +60,7 @@ getLatestUnlockedBar() {
     
     if (
         latestUnlockedBar
-        && latestUnlockedBar.bind = BAR_BINDINGS.bar_4.bind
+        && latestUnlockedBar.bind = BAR_BINDINGS.Numpad4.bind
     ) {
         return latestUnlockedBar
     }

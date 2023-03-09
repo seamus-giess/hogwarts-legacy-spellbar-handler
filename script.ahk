@@ -42,7 +42,8 @@ For (key, quickbindData in SPELL_QUICKBINDS.OwnProps()) {
     quickbinds[key] := SpellQuickbind(
         quickbindData.bind,
         spells[key],
-        quickBindData || true
+        hasProp(quickBindData, "castOnSet") ? quickBindData.castOnSet : true,
+        hasProp(quickBindData, "delay") ? quickBindData.delay : 1
     )
 }
 
@@ -55,3 +56,10 @@ For (barSlug, bind in TEMPORARY_SWAP_MODIFIERS.OwnProps()) {
 
     barSwaps[barSlug] := SwapBarKeybind(bind, bars[barSlug])
 }
+
+; CREATE BAR CYCLE LOOP
+barCycle := []
+For (barBind in BAR_CYCLE_BARS) {
+    barCycle.push(bars[barBind])
+}
+CycleBind := BarCycleBind(BAR_CYCLE_KEY, barCycle)

@@ -16,7 +16,7 @@ unsetQuickbind()
     currentQuickbind := false
 }
 
-setCurrentQuickbind(slot, spell, castOnSet)
+setCurrentQuickbind(slot, spell, castOnSet, delay := 1)
 {
     global currentQuickbind
 
@@ -34,12 +34,19 @@ setCurrentQuickbind(slot, spell, castOnSet)
         return
     }
 
-    useQuickbindSlot(slot)
+    useQuickbindSlot(slot, delay)
 }
 
-useQuickbindSlot(slot)
+useQuickbindSlot(slot, delay := 1)
 {
     originalBar := getCurrentBar()
+    
+    if (originalBar = slot.bar) {
+        slot.press()
+        return
+    }
+
+    ; wait for previous actions to end
     sleep(50)
     
     slot.pageTo()
@@ -47,7 +54,7 @@ useQuickbindSlot(slot)
 
     ; TODO cast spell
     slot.press()
-    sleep(1)
+    sleep(delay)
 
     ; TODO swap back to previous bar
     originalBar.pageTo()

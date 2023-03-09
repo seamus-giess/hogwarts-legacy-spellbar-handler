@@ -1,9 +1,10 @@
 class SpellQuickbind extends AppKeybind {
-    __New(bind, targetSpell, castOnSet := true)
+    __New(bind, targetSpell, castOnSet := true, delay := 1)
     {
         this.bind := bind
         this.spell := targetSpell
         this.castOnSet := castOnSet
+        this.delay := delay
 
         this.isCurrentQuickSpell := false
 
@@ -25,10 +26,10 @@ class SpellQuickbind extends AppKeybind {
 
         if (isQuickbindCurrent(this.spell)) {
 
-            useQuickbindSlot(slot)
+            useQuickbindSlot(slot, this.delay)
             return
         }
 
-        setCurrentQuickbind(slot, this.spell, this.castOnSet)
+        setCurrentQuickbind(slot, this.spell, this.castOnSet, this.delay)
     }
 }

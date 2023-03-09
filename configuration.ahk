@@ -28,17 +28,17 @@ SLOT_BINDINGS := {
 
 ; Specify Hogwarts Legacy's binding for each specific spellbar
 BAR_BINDINGS := {
-    bar_1: {bind: "F1", xCoordinate: 1896, yCoordinate: 864, unlocked: true},
-    bar_2: {bind: "F2", xCoordinate: 1896, yCoordinate: 884, unlocked: false},
-    bar_3: {bind: "F3", xCoordinate: 1896, yCoordinate: 904, unlocked: false},
-    bar_4: {bind: "F4", xCoordinate: 1896, yCoordinate: 924, unlocked: false},
+    Numpad1: {bind: "Numpad1", xCoordinate: 1896, yCoordinate: 864, unlocked: true},
+    Numpad2: {bind: "Numpad2", xCoordinate: 1896, yCoordinate: 884, unlocked: false},
+    Numpad3: {bind: "Numpad3", xCoordinate: 1896, yCoordinate: 904, unlocked: false},
+    Numpad4: {bind: "Numpad4", xCoordinate: 1896, yCoordinate: 924, unlocked: false},
 }
 
 SPELL_SELECTION_BAR_Y := Map(
-    "F1", 200,
-    "F2", 350,
-    "F3", 500,
-    "F4", 650,
+    "Numpad1", 200,
+    "Numpad2", 350,
+    "Numpad3", 500,
+    "Numpad4", 650,
 )
 SPELL_SELECTION_SLOT_X := Map(
     "1", 140,
@@ -51,16 +51,16 @@ SPELL_SELECTION_SLOT_X := Map(
 ; if BAR_CYCLE_KEY is not set, this feature is disabled
 BAR_CYCLE_KEY := "``" ; backtick
 BAR_CYCLE_BARS := [
-    "bar_1",
-    "bar_2",
+    "Numpad1",
+    "Numpad2",
 ]
 
 ; if a bar has a falsey value (or not assigned), it is skipped
 TEMPORARY_SWAP_MODIFIERS := {
-    ; bar_1: false,
-    ; bar_2: false,
-    bar_3: "LAlt",
-    bar_2: "LCtrl",
+    ; F1: false,
+    ; F2: false,
+    Numpad3: "LAlt",
+    Numpad4: "LCtrl",
 }
 
 ; Set hot-swapping keybinds
@@ -75,7 +75,7 @@ SPELL_QUICKBINDS := {
     reparo: {
         bind: "H",
         xCoordinate: 1128,
-        yCoordinate: 523,
+        yCoordinate: 524,
         ; castOnSet: true
     },
     disillusionment: {
@@ -88,6 +88,27 @@ SPELL_QUICKBINDS := {
         bind: false,
         xCoordinate: 0,
         yCoordinate: 0,
-        ; castOnSet: true
+        ; cazstOnSet: true
     },
+    conjuring_spell: {
+        bind: "F1",
+        xCoordinate: 891,
+        yCoordinate: 644,
+        delay: 1000,
+        ; cazstOnSet: true
+    },
+    altering_spell: {
+        bind: "F2",
+        xCoordinate: 1010,
+        yCoordinate: 644,
+        delay: 1000,
+        ; cazstOnSet: true
+    },
+    evanesco: {
+        bind: "F3",
+        xCoordinate: 1128,
+        yCoordinate: 644,
+        delay: 1000,
+        ; cazstOnSet: true
+    }
 }
