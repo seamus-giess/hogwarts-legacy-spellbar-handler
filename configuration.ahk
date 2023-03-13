@@ -1,10 +1,17 @@
+; This prevents the keybinds from activating
+; outside of the intended application
 ALLOWED_APPLICATONS := [
     "Hogwarts Legacy",
     "hogwarts-legacy-spellbar-handler",
 ]
 
+; Set this to the bind you use to open your spell selection menu
 SPELL_SELECTION_BIND := "T"
 
+; This array will be used for binds to
+; resume movement if you continue to hold the bind down
+; Only applicable for certain binds,
+; include all keys you press to move here
 MOVEMENT_KEYS := [
     "S",
     "D",
@@ -13,27 +20,68 @@ MOVEMENT_KEYS := [
     "LShift",
 ]
 
+; This is used for screen reader logic
+; get the values if the keybinds don't
+; work by using AHK's "Window Spy"
 BAR_STATE_COLORS := {
     current: "0xE1E1E2",
     unlocked: "0x858585",
     locked: "0x1A1A1A",
 }
 
+; Correlates slots to their keybindings,
+; slots are object structures in case of
+; future extensions to data
 SLOT_BINDINGS := {
-    1: {bind: "1", xCoordinate: 1896, yCoordinate: 864},
-    2: {bind: "2", xCoordinate: 1896, yCoordinate: 884},
-    3: {bind: "3", xCoordinate: 1896, yCoordinate: 904},
-    4: {bind: "4", xCoordinate: 1896, yCoordinate: 924},
+    1: {
+        bind: "1"
+    },
+    2: {
+        bind: "2"
+    },
+    3: {
+        bind: "3"
+    },
+    4: {
+        bind: "4"
+    },
 }
 
 ; Specify Hogwarts Legacy's binding for each specific spellbar
+; x and y coordinate are of diamonds right of bar (when not in spell select)
+; coordinates are used to determining what is currently active bar
+; as well as what bars are unlocked
+; coordinates are based on 1920x1080 display, recalibrate with window spy
 BAR_BINDINGS := {
-    Numpad1: {bind: "Numpad1", xCoordinate: 1896, yCoordinate: 864, unlocked: true},
-    Numpad2: {bind: "Numpad2", xCoordinate: 1896, yCoordinate: 884, unlocked: false},
-    Numpad3: {bind: "Numpad3", xCoordinate: 1896, yCoordinate: 904, unlocked: false},
-    Numpad4: {bind: "Numpad4", xCoordinate: 1896, yCoordinate: 924, unlocked: false},
+    Numpad1: {
+        bind: "Numpad1",
+        xCoordinate: 1896,
+        yCoordinate: 864,
+        unlocked: true,
+    },
+    Numpad2: {
+        bind: "Numpad2",
+        xCoordinate: 1896,
+        yCoordinate: 884,
+        unlocked: false,
+    },
+    Numpad3: {
+        bind: "Numpad3",
+        xCoordinate: 1896,
+        yCoordinate: 904,
+        unlocked: false,
+    },
+    Numpad4: {
+        bind: "Numpad4",
+        xCoordinate: 1896,
+        yCoordinate: 924,
+        unlocked: false,
+    },
 }
 
+; Used for moving spells to bars, set for 1920x1080
+; Use "Window Spy" to recalibrate
+; (I recommend using steam overlay)
 SPELL_SELECTION_BAR_Y := Map(
     "Numpad1", 200,
     "Numpad2", 350,
@@ -55,14 +103,17 @@ BAR_CYCLE_BARS := [
     "Numpad2",
 ]
 
-; if a bar has a falsey value (or not assigned), it is skipped
+; if a bar has a falsey value (or not assigned/commented out), it is skipped
 TEMPORARY_SWAP_MODIFIERS := {
-    ; F1: false,
-    ; F2: false,
+    ; Numpad1: false,
+    ; Numpad2: false,
     Numpad3: "LAlt",
     Numpad4: "LCtrl",
 }
 
+; Used for moving spells, set for 1920x1080
+; Use "Window Spy" to recalibrate
+; (I recommend using steam overlay)
 SPELL_SELECTION_ROW := {
     1: 160,
     2: 280,
@@ -72,6 +123,9 @@ SPELL_SELECTION_ROW := {
     6: 760,
 }
 
+; Used for moving spells, set for 1920x1080
+; Use "Window Spy" to recalibrate
+; (I recommend using steam overlay)
 SPELL_SELECTION_COLUMN := {
     1: 770,
     2: 890,
@@ -79,6 +133,9 @@ SPELL_SELECTION_COLUMN := {
     4: 1130,
 }
 
+; Used for moving spells shouldn't
+; need to touch this unless new spells
+; are added
 SPELL_SELECTION_SLOTS := {
     arresto_memomentum: {
         row: "1",
@@ -175,7 +232,8 @@ SPELL_SELECTION_SLOTS := {
 }
 
 ; Set hot-swapping keybinds
-; Spell hot-swapping swaps the spells into the fourth slot of your lowest bar
+; Spell hot-swapping swaps the spells
+; into the fourth slot of your lowest bar
 SPELL_QUICKBINDS := {
     lumos: {
         bind: "A",
@@ -210,17 +268,21 @@ SPELL_QUICKBINDS := {
     }
 }
 
-SLOTS_FILL := {
-    Numpad1: {
-        1: "diffindo",
-        2: "levioso",
-        3: "accio",
-        4: "expelliarmus",
-    },
-    Numpad2: {
-        1: "incendio",
-        2: "flipendo",
-        3: "depulso",
-        4: "confringo",
-    },
+; Configure spell layouts, outer object key is the
+; bind to use, inner key is the bar identifier
+SLOTS_FILL_BINDS := {
+    Numpad5: {
+        Numpad1: {
+            1: "diffindo",
+            2: "levioso",
+            3: "accio",
+            4: "expelliarmus",
+        },
+        Numpad2: {
+            1: "incendio",
+            2: "flipendo",
+            3: "depulso",
+            4: "confringo",
+        },
+    }
 }

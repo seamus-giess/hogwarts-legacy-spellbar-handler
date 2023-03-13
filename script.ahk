@@ -20,21 +20,21 @@ For (barKey, barObject in bars) {
     For (slot, slotData in SLOT_BINDINGS.OwnProps()) {
         barSlots[barObject.bind][slot] := BarSlot(
             slotData.bind,
-            barObject,
-            Coordinates(
-                slotData.xCoordinate,
-                slotData.yCoordinate,
-            )
+            barObject
         )
     }
 }
 
 ; QUICKBIND DATA SETUP
 spells := Map()
+For (spellKey, selectionPositionData in SPELL_SELECTION_SLOTS.OwnProps()) {
+    spellPosition := getSpellCoordinates(spellKey)
+    spells[spellKey] := Spell(spellPosition)
+}
+spells["diffindo"]
+
 quickbinds := Map()
 For (key, quickbindData in SPELL_QUICKBINDS.OwnProps()) {
-    spellPosition := getSpellCoordinates(key)
-    spells[key] := Spell(spellPosition)
 
     quickbinds[key] := SpellQuickbind(
         quickbindData.bind,
@@ -60,3 +60,8 @@ For (barBind in BAR_CYCLE_BARS) {
     barCycle.push(bars[barBind])
 }
 CycleBind := BarCycleBind(BAR_CYCLE_KEY, barCycle)
+
+spellLayouts := Map()
+For (bind, spellSlots in SLOTS_FILL_BINDS.OwnProps()) {
+    spellLayouts[bind] := FillSlotsBind(bind, spellSlots)
+}

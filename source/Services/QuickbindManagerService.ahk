@@ -23,7 +23,17 @@ setCurrentQuickbind(slot, spell, castOnSet, delay := 1)
     BlockInput(true)
 
     ; Move spell to slot
+    pressedKeys := getPressedMovementKeys()
+
+    ; Open spell select menu
+    spellSelectionKey := "{" . SPELL_SELECTION_BIND . "}"
+    Send(spellSelectionKey)
+    Sleep(25)
+
     slot.putSpellHere(spell)
+
+    Send(spellSelectionKey)
+    repressKeys(pressedKeys)
 
     ; TODO update quickspell global state
     currentQuickbind := spell
