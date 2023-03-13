@@ -7,7 +7,8 @@ class BarCycleBind extends AppKeybind {
         this.bars := cycleBars
         this.bind := bind
 
-        this.initializeHotkey(this.bind, "swapBars")
+        cycleBarsBind := "" . this.bind
+        this.initializeHotkey(cycleBarsBind, "swapBars")
     }
 
     swapBars()
