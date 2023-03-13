@@ -46,7 +46,7 @@ a good idea to keep it self-contained though.
     using AHK's "Window Spy" to recalibrate. (Steam Overlay can make this a bit easier)
 
 ## Credits
-- Butto - Letting me rubber duck and bounce ideas off fo him
+- Butto - Letting me rubber duck and bounce ideas off of him
 - Lachlan - Holding my hand through the fresh OS install leading up to
 this
 - Doug - Convincing me to stop being a whiny baby and just do a fresh OS
