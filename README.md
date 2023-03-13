@@ -41,7 +41,7 @@ a good idea to keep it self-contained though.
 
 4. Configure the values set in `./configuration.ahk` - its a bit messy, but should have everything there you need to touch.
 
-    * Screen dimensions are set arbitrarily for 1920x180. Strongly advise
+    * Screen dimensions are set arbitrarily for 1920x1800. Strongly advise
     using AHK's "Window Spy" to recalibrate. (Steam Overlay can make this a bit easier)
 
 ## Credits
