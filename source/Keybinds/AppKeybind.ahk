@@ -1,5 +1,3 @@
-#Include ../../Services/_index.ahk
-
 class AppKeyBind
 {
     isAllowed()

@@ -1,5 +1,5 @@
-#Include configuration.ahk
 #Include source/_index.ahk
+#Include configuration.ahk
 
 ; BAR DATA SETUP
 bars := Map()

@@ -211,13 +211,13 @@ SPELL_QUICKBINDS := {
 }
 
 SLOTS_FILL := {
-    "Numpad1": {
+    Numpad1: {
         1: "diffindo",
         2: "levioso",
         3: "accio",
         4: "expelliarmus",
     },
-    "Numpad2": {
+    Numpad2: {
         1: "incendio",
         2: "flipendo",
         3: "depulso",
