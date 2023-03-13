@@ -12,6 +12,10 @@ class FillSlotsBind extends AppKeybind {
         global barSlots
         global spells
 
+        if (!this.isAllowed()) {
+            return
+        }
+
         pressedKeys := getPressedMovementKeys()
 
         ; Open spell select menu
@@ -22,18 +26,14 @@ class FillSlotsBind extends AppKeybind {
         For (rowKey, rowSpells in this.rows.OwnProps()) {
             For (columnKey, spellKey in rowSpells.OwnProps()) {
                 slot := barSlots[rowKey][columnKey]
-                try {
-                    spell := spells[spellKey]
-                } catch Error as err {
-                    MsgBox(spellKey)
-                    continue
-                }
+                spell := spells[spellKey]
 
                 slot.putSpellHere(spell)
             }
         }
         
-        Send(spellSelectionKey)
+        breakSelectionKey := "{" . CLOSE_SELECTIONB_BIND . "}"
+        Send(breakSelectionKey)
         repressKeys(pressedKeys)
     }
 }
