@@ -1,2 +1,9 @@
-#Include "Models/_index.ahk"
-#Include "Controllers/_index.ahk"
+#Include Coordinates.ahk
+#Include Bar.ahk
+#Include BarSlot.ahk
+#Include Spell.ahk
+#Include AppKeybind.ahk
+#Include SwapBarKeybind.ahk
+#Include SpellQuickbind.ahk
+#Include BarCycleBind.ahk
+#include FillSlotsBind.ahk

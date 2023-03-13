@@ -22,3 +22,12 @@ arrayContains(haystack, needle)
 	
 	return false
 }
+
+getSpellCoordinates(spell)
+{
+    spellSelectionGridPlacement := SPELL_SELECTION_SLOTS.%spell%
+    return Coordinates(
+        SPELL_SELECTION_COLUMN.%spellSelectionGridPlacement.column%,
+        SPELL_SELECTION_ROW.%spellSelectionGridPlacement.row%,
+    )
+}

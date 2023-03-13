@@ -63,52 +63,164 @@ TEMPORARY_SWAP_MODIFIERS := {
     Numpad4: "LCtrl",
 }
 
+SPELL_SELECTION_ROW := {
+    1: 160,
+    2: 280,
+    3: 400,
+    4: 520,
+    5: 640,
+    6: 760,
+}
+
+SPELL_SELECTION_COLUMN := {
+    1: 770,
+    2: 890,
+    3: 1010,
+    4: 1130,
+}
+
+SPELL_SELECTION_SLOTS := {
+    arresto_memomentum: {
+        row: "1",
+        column: "1",
+    },
+    glacius: {
+        row: "1",
+        column: "2",
+    },
+    levioso: {
+        row: "1",
+        column: "3",
+    },
+    transformation: {
+        row: "1",
+        column: "4",
+    },
+    accio: {
+        row: "2",
+        column: "1",
+    },
+    depulso: {
+        row: "2",
+        column: "2",
+    },
+    descendo: {
+        row: "2",
+        column: "3",
+    },
+    flipendo: {
+        row: "2",
+        column: "4",
+    },
+    confringo: {
+        row: "3",
+        column: "1",
+    },
+    diffindo: {
+        row: "3",
+        column: "2",
+    },
+    expelliarmus: {
+        row: "3",
+        column: "3",
+    },
+    bombarda: {
+        row: "3",
+        column: "4",
+    },
+    incendio: {
+        row: "4",
+        column: "1",
+    },
+    disillusionment: {
+        row: "4",
+        column: "2",
+    },
+    lumos: {
+        row: "4",
+        column: "3",
+    },
+    reparo: {
+        row: "4",
+        column: "4",
+    },
+    wingardium_leviosa: {
+        row: "5",
+        column: "1",
+    },
+    conjuring_spell: {
+        row: "5",
+        column: "2",
+    },
+    altering_spell: {
+        row: "5",
+        column: "3",
+    },
+    evanesco: {
+        row: "5",
+        column: "4",
+    },
+    avada_kedavra: {
+        row: "6",
+        column: "1",
+    },
+    crucio: {
+        row: "6",
+        column: "2",
+    },
+    imperio: {
+        row: "6",
+        column: "3",
+    },
+}
+
 ; Set hot-swapping keybinds
 ; Spell hot-swapping swaps the spells into the fourth slot of your lowest bar
 SPELL_QUICKBINDS := {
     lumos: {
         bind: "A",
-        xCoordinate: 1010,
-        yCoordinate: 524,
         ; castOnSet: true
     },
     reparo: {
         bind: "H",
-        xCoordinate: 1128,
-        yCoordinate: 524,
         ; castOnSet: true
     },
     disillusionment: {
         bind: "C",
-        xCoordinate: 891,
-        yCoordinate: 524,
         ; castOnSet: true
     },
     wingardium_leviosa: {
         bind: false,
-        xCoordinate: 0,
-        yCoordinate: 0,
         ; cazstOnSet: true
     },
     conjuring_spell: {
         bind: "F1",
-        xCoordinate: 891,
-        yCoordinate: 644,
         delay: 1000,
         ; cazstOnSet: true
     },
     altering_spell: {
         bind: "F2",
-        xCoordinate: 1010,
-        yCoordinate: 644,
         delay: 1000,
         ; cazstOnSet: true
     },
     evanesco: {
         bind: "F3",
-        xCoordinate: 1128,
-        yCoordinate: 644,
         delay: 1000,
         ; cazstOnSet: true
     }
+}
+
+SLOTS_FILL := {
+    "Numpad1": {
+        1: "diffindo",
+        2: "levioso",
+        3: "accio",
+        4: "expelliarmus",
+    },
+    "Numpad2": {
+        1: "incendio",
+        2: "flipendo",
+        3: "depulso",
+        4: "confringo",
+    },
 }

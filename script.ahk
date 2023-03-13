@@ -33,10 +33,7 @@ For (barKey, barObject in bars) {
 spells := Map()
 quickbinds := Map()
 For (key, quickbindData in SPELL_QUICKBINDS.OwnProps()) {
-    spellPosition := Coordinates(
-        quickbindData.xCoordinate,
-        quickbindData.yCoordinate,
-    )
+    spellPosition := getSpellCoordinates(key)
     spells[key] := Spell(spellPosition)
 
     quickbinds[key] := SpellQuickbind(
