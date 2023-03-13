@@ -3,7 +3,7 @@
 An AutoHotKey (V2) application for Hogwarts Legacy providing several keybind
 configurations.
 
-Skip to the [Installation](Installation%20&%20Setup) section if you don't care about all the fluff and just want
+Skip to the [Installation](#installation_and_setup) section if you don't care about all the fluff and just want
 to dive in.
 
 ## Motivation
@@ -25,6 +25,7 @@ bit until it settles back down. Can't quite isolate the issue, I've dropped
 some delays in that greatly lessens it, but feel free to help identify
 the issue if you can <3
 
+<a name="installation_and_setup"></a>
 ## Installaton & Setup
 1. This application requires [AutoHotKey V2](https://github.com/AutoHotkey/AutoHotkey/releases).
 Kindly go and install 
