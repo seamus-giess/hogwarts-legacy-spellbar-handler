@@ -19,8 +19,8 @@ mimic (as in, not at all) the concept of Model-View-Controller. But
 I'm an amateur so don't expect a lot.
 
 ## Installaton & Setup
-1. This application requires [AutoHotKey V2]
-(https://github.com/AutoHotkey/AutoHotkey/releases). Kindly go and install 
+1. This application requires [AutoHotKey V2](https://github.com/AutoHotkey/AutoHotkey/releases).
+Kindly go and install 
 it if you haven't already
 (See [here](https://www.autohotkey.com/docs/v2/howto/Install.htm) if you 
 need help with that).
