@@ -18,6 +18,13 @@ complex scripts by including other script files. The structure attempts to
 mimic (as in, not at all) the concept of Model-View-Controller. But
 I'm an amateur so don't expect a lot.
 
+## Known issues
+Theres a bit of jank with the spell quickbinds. Usually from starting the 
+script/alt-tabbing. May need to manually swap bars a bit or change spells a 
+bit until it settles back down. Can't quite isolate the issue, I've dropped
+some delays in that greatly lessens it, but feel free to help identify
+the issue if you can <3
+
 ## Installaton & Setup
 1. This application requires [AutoHotKey V2](https://github.com/AutoHotkey/AutoHotkey/releases).
 Kindly go and install 
