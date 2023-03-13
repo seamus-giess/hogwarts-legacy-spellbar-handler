@@ -5,8 +5,8 @@ class BarSlot {
         this.bar := bar
 
         this.selectionSlotPosition := Coordinates(
-            SPELL_SELECTION_SLOT_X[this.bind],
-            SPELL_SELECTION_BAR_Y[this.bar.bind],
+            SPELL_SELECTION_BARS_SLOT_X[this.bind],
+            SPELL_SELECTION_BARS_Y[this.bar.bind],
         )
     }
 

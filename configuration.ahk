@@ -1,3 +1,7 @@
+; ----------------------
+; STUFF YOU SHOULD CHECK/REBIND
+; ----------------------
+
 ; This prevents the keybinds from activating
 ; outside of the intended application
 ALLOWED_APPLICATONS := [
@@ -19,33 +23,6 @@ MOVEMENT_KEYS := [
     "E",
     "LShift",
 ]
-
-; This is used for screen reader logic
-; get the values if the keybinds don't
-; work by using AHK's "Window Spy"
-BAR_STATE_COLORS := {
-    current: "0xE1E1E2",
-    unlocked: "0x858585",
-    locked: "0x1A1A1A",
-}
-
-; Correlates slots to their keybindings,
-; slots are object structures in case of
-; future extensions to data
-SLOT_BINDINGS := {
-    1: {
-        bind: "1"
-    },
-    2: {
-        bind: "2"
-    },
-    3: {
-        bind: "3"
-    },
-    4: {
-        bind: "4"
-    },
-}
 
 ; Specify Hogwarts Legacy's binding for each specific spellbar
 ; x and y coordinate are of diamonds right of bar (when not in spell select)
@@ -79,21 +56,38 @@ BAR_BINDINGS := {
     },
 }
 
-; Used for moving spells to bars, set for 1920x1080
-; Use "Window Spy" to recalibrate
-; (I recommend using steam overlay)
-SPELL_SELECTION_BAR_Y := Map(
-    "Numpad1", 200,
-    "Numpad2", 350,
-    "Numpad3", 500,
-    "Numpad4", 650,
-)
-SPELL_SELECTION_SLOT_X := Map(
-    "1", 140,
-    "2", 267,
-    "3", 395,
-    "4", 517,
-)
+; Correlates slots (1-4) to their keybindings,
+; slots are object structures in case of
+; future extensions to data
+SLOT_BINDINGS := {
+    1: {
+        bind: "1"
+    },
+    2: {
+        bind: "2"
+    },
+    3: {
+        bind: "3"
+    },
+    4: {
+        bind: "4"
+    },
+}
+
+; --------------
+; KEYBIND CONFIG
+; --------------
+
+; Used for "modifier" map controls
+; while holding the key down, swaps to another bar
+; attempts to swap back on release
+; (I don't handle alt-tab super well, sorry)
+TEMPORARY_SWAP_MODIFIERS := {
+    ; Numpad1: false,
+    ; Numpad2: false,
+    Numpad3: "LAlt",
+    Numpad4: "LCtrl",
+}
 
 ; Specify spellbar cycling/swapping keybinds (and bars) to be set
 ; if BAR_CYCLE_KEY is not set, this feature is disabled
@@ -103,17 +97,83 @@ BAR_CYCLE_BARS := [
     "Numpad2",
 ]
 
-; if a bar has a falsey value (or not assigned/commented out), it is skipped
-TEMPORARY_SWAP_MODIFIERS := {
-    ; Numpad1: false,
-    ; Numpad2: false,
-    Numpad3: "LAlt",
-    Numpad4: "LCtrl",
+; Set hot-swapping keybinds
+; Spell hot-swapping swaps the spells
+; into the fourth slot of your lowest bar
+SPELL_QUICKBINDS := {
+    lumos: {
+        bind: "A",
+        ; castOnSet: true
+    },
+    reparo: {
+        bind: "H",
+        ; castOnSet: true
+    },
+    disillusionment: {
+        bind: "C",
+        ; castOnSet: true
+    },
+    wingardium_leviosa: {
+        bind: false,
+        ; cazstOnSet: true
+    },
+    conjuring_spell: {
+        bind: "F1",
+        delay: 1000,
+        ; cazstOnSet: true
+    },
+    altering_spell: {
+        bind: "F2",
+        delay: 1000,
+        ; cazstOnSet: true
+    },
+    evanesco: {
+        bind: "F3",
+        delay: 1000,
+        ; cazstOnSet: true
+    }
 }
 
-; Used for moving spells, set for 1920x1080
+; Configure spell layouts, outer object key is the
+; bind to use, inner key is the bar identifier
+SLOTS_FILL_BINDS := {
+    Numpad5: {
+        Numpad1: {
+            1: "diffindo",
+            2: "levioso",
+            3: "accio",
+            4: "expelliarmus",
+        },
+        Numpad2: {
+            1: "incendio",
+            2: "flipendo",
+            3: "depulso",
+            4: "confringo",
+        },
+    }
+}
+
+
+; ----------------------------------------------------
+; STUFF TO RECALIBRATE IF YOUR MONITOR ISN'T 1920x1080
+; ----------------------------------------------------
+
 ; Use "Window Spy" to recalibrate
 ; (I recommend using steam overlay)
+
+; Used for moving spells to bars
+SPELL_SELECTION_BARS_Y := Map(
+    "Numpad1", 200,
+    "Numpad2", 350,
+    "Numpad3", 500,
+    "Numpad4", 650,
+)
+SPELL_SELECTION_BARS_SLOT_X := Map(
+    "1", 140,
+    "2", 267,
+    "3", 395,
+    "4", 517,
+)
 SPELL_SELECTION_ROW := {
     1: 160,
     2: 280,
@@ -122,16 +182,29 @@ SPELL_SELECTION_ROW := {
     5: 640,
     6: 760,
 }
-
-; Used for moving spells, set for 1920x1080
-; Use "Window Spy" to recalibrate
-; (I recommend using steam overlay)
 SPELL_SELECTION_COLUMN := {
     1: 770,
     2: 890,
     3: 1010,
     4: 1130,
 }
+
+; ---------------------------------------------
+; STUFF TO DOUBLE CHECK IF BARS ARE BEIND WEIRD
+; ---------------------------------------------
+
+; This is used for screen reader logic
+; get the values if the keybinds don't
+; work by using AHK's "Window Spy"
+BAR_STATE_COLORS := {
+    current: "0xE1E1E2",
+    unlocked: "0x858585",
+    locked: "0x1A1A1A",
+}
+
+; ---------------------------------------------
+; DON'T TOUCH THIS UNLESS DLC COMES OUT PERHAPS
+; ---------------------------------------------
 
 ; Used for moving spells shouldn't
 ; need to touch this unless new spells
@@ -229,60 +302,4 @@ SPELL_SELECTION_SLOTS := {
         row: "6",
         column: "3",
     },
-}
-
-; Set hot-swapping keybinds
-; Spell hot-swapping swaps the spells
-; into the fourth slot of your lowest bar
-SPELL_QUICKBINDS := {
-    lumos: {
-        bind: "A",
-        ; castOnSet: true
-    },
-    reparo: {
-        bind: "H",
-        ; castOnSet: true
-    },
-    disillusionment: {
-        bind: "C",
-        ; castOnSet: true
-    },
-    wingardium_leviosa: {
-        bind: false,
-        ; cazstOnSet: true
-    },
-    conjuring_spell: {
-        bind: "F1",
-        delay: 1000,
-        ; cazstOnSet: true
-    },
-    altering_spell: {
-        bind: "F2",
-        delay: 1000,
-        ; cazstOnSet: true
-    },
-    evanesco: {
-        bind: "F3",
-        delay: 1000,
-        ; cazstOnSet: true
-    }
-}
-
-; Configure spell layouts, outer object key is the
-; bind to use, inner key is the bar identifier
-SLOTS_FILL_BINDS := {
-    Numpad5: {
-        Numpad1: {
-            1: "diffindo",
-            2: "levioso",
-            3: "accio",
-            4: "expelliarmus",
-        },
-        Numpad2: {
-            1: "incendio",
-            2: "flipendo",
-            3: "depulso",
-            4: "confringo",
-        },
-    }
 }
