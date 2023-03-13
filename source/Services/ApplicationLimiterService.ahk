@@ -1,6 +1,12 @@
 isWindowAllowed()
 {
-    isAllowedWindow := arrayContains(ALLOWED_APPLICATONS, WinGetTitle("A"))
+    try {
+        activeWindow := WinGetTitle("A")
+    } catch Error as err {
+        return false
+    }
+
+    isAllowedWindow := arrayContains(ALLOWED_APPLICATONS, activeWindow)
     if (!isAllowedWindow) {
         return false
     }
