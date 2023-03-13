@@ -14,7 +14,7 @@ SPELL_SELECTION_BIND := "T"
 ; Hogwarts Legacy bugs bars if you move too many spells and close
 ; with the same key you use to open the selection menu
 ; don't ask me why :/
-CLOSE_SELECTIONB_BIND := "Esc"
+CLOSE_SELECTION_BIND := "Esc"
 
 ; This array will be used for binds to
 ; resume movement if you continue to hold the bind down

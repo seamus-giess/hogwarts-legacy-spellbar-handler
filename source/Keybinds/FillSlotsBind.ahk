@@ -32,7 +32,7 @@ class FillSlotsBind extends AppKeybind {
             }
         }
         
-        breakSelectionKey := "{" . CLOSE_SELECTIONB_BIND . "}"
+        breakSelectionKey := "{" . CLOSE_SELECTION_BIND . "}"
         Send(breakSelectionKey)
         repressKeys(pressedKeys)
     }
