@@ -135,7 +135,13 @@ SPELL_QUICKBINDS := {
         bind: "F3",
         delay: 1000,
         ; cazstOnSet: true
-    }
+    },
+    beast_petting_brush: {
+        bind: "<!Q",
+    },
+    beast_feed: {
+        bind: "<!W",
+    },
 }
 
 ; Configure spell layouts, outer object key is the
@@ -185,6 +191,7 @@ SPELL_SELECTION_ROW := {
     4: 520,
     5: 640,
     6: 760,
+    7: 880,
 }
 SPELL_SELECTION_COLUMN := {
     1: 770,
@@ -305,5 +312,13 @@ SPELL_SELECTION_SLOTS := {
     imperio: {
         row: "6",
         column: "3",
+    },
+    beast_petting_brush: {
+        row: "6",
+        column: "4",
+    },
+    beast_feed: {
+        row: "7",
+        column: "1",
     },
 }
