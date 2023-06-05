@@ -140,7 +140,10 @@ SPELL_QUICKBINDS := {
         bind: "<!Q",
     },
     beast_feed: {
-        bind: "<!W",
+        bind: "Q",
+    },
+    nab_sack: {
+        bind: "F4",
     },
 }
 
@@ -320,5 +323,9 @@ SPELL_SELECTION_SLOTS := {
     beast_feed: {
         row: "7",
         column: "1",
+    },
+    nab_sack: {
+        row: "7",
+        column: "2",
     },
 }
